@@ -904,6 +904,12 @@
   .right-6 {
     right: calc(var(--spacing) * 6);
   }
+  .-bottom-1 {
+    bottom: calc(var(--spacing) * -1);
+  }
+  .-bottom-1\/2 {
+    bottom: calc(calc(1/2 * 100%) * -1);
+  }
   .-bottom-10 {
     bottom: calc(var(--spacing) * -10);
   }
@@ -912,12 +918,6 @@
   }
   .bottom-6 {
     bottom: calc(var(--spacing) * 6);
-  }
-  .bottom-10 {
-    bottom: calc(var(--spacing) * 10);
-  }
-  .bottom-10\/12 {
-    bottom: calc(10/12 * 100%);
   }
   .bottom-\[60px\] {
     bottom: 60px;
@@ -994,6 +994,9 @@
   .my-12 {
     margin-block: calc(var(--spacing) * 12);
   }
+  .my-16 {
+    margin-block: calc(var(--spacing) * 16);
+  }
   .-mt-0 {
     margin-top: calc(var(--spacing) * -0);
   }
@@ -1002,6 +1005,9 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
   }
   .apexcharts-canvas {
     & .apexcharts-tooltip {
@@ -1530,6 +1536,9 @@
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
+  }
+  .w-4\/4 {
+    width: calc(4/4 * 100%);
   }
   .w-5 {
     width: calc(var(--spacing) * 5);
@@ -2505,6 +2514,11 @@
       grid-column: span 4 / span 4;
     }
   }
+  .md\:col-span-6 {
+    @media (width >= 48rem) {
+      grid-column: span 6 / span 6;
+    }
+  }
   .md\:col-start-1 {
     @media (width >= 48rem) {
       grid-column-start: 1;
@@ -2600,6 +2614,11 @@
       width: calc(2/4 * 100%);
     }
   }
+  .md\:w-3\/5 {
+    @media (width >= 48rem) {
+      width: calc(3/5 * 100%);
+    }
+  }
   .md\:grid-cols-12 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -2625,6 +2644,11 @@
       padding-block: calc(var(--spacing) * 6);
     }
   }
+  .md\:py-20 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 20);
+    }
+  }
   .md\:pt-0 {
     @media (width >= 48rem) {
       padding-top: calc(var(--spacing) * 0);
@@ -2633,11 +2657,6 @@
   .md\:pb-0 {
     @media (width >= 48rem) {
       padding-bottom: calc(var(--spacing) * 0);
-    }
-  }
-  .md\:pb-20 {
-    @media (width >= 48rem) {
-      padding-bottom: calc(var(--spacing) * 20);
     }
   }
   .md\:text-sm {
@@ -3076,9 +3095,9 @@ input[type="checkbox"] {
   }
   .link-hover-underline {
     position: relative;
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-neutral-900);
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-surface-bg);
     &::after {
       content: var(--tw-content);
       position: absolute;
@@ -3101,7 +3120,7 @@ input[type="checkbox"] {
     }
     &::after {
       content: var(--tw-content);
-      background-color: var(--color-neutral-900);
+      background-color: var(--color-surface-bg);
     }
     &::after {
       content: var(--tw-content);
