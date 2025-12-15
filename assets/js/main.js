@@ -405,3 +405,180 @@ scrollToTopBtn.addEventListener("click", () => {
 
 // Initialize Lucide icons for dynamically added elements
 lucide.createIcons();
+
+// ============================================
+// GSAP
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+  // Registra o plugin ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Seleciona todos os cards
+  const cards = document.querySelectorAll(".card-focus");
+
+  cards.forEach((card) => {
+    // Garante que o card seja focável para acessibilidade
+    card.setAttribute("tabindex", "0");
+
+    // === Animação de entrada com ScrollTrigger ===
+    gsap.fromTo(
+      card,
+      {
+        opacity: 0,
+        y: 100,
+        rotateX: -90,
+        z: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        z: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
+          markers: false, // mude para true se quiser ver os markers
+        },
+      }
+    );
+    let isFlipped = false; // Estado do flip por card
+    const inner = card.querySelector(".flip-inner");
+
+    // === Efeito de flip no clique ===
+    card.addEventListener("click", () => {
+      if (!isFlipped) {
+        gsap.to(inner, {
+          rotationY: 180,
+          duration: 0.6,
+          ease: "power2.inOut",
+        });
+      } else {
+        gsap.to(inner, {
+          rotationY: 0,
+          duration: 0.6,
+          ease: "power2.inOut",
+        });
+      }
+      isFlipped = !isFlipped;
+    });
+    
+    // === Movimento sutil com o mouse (opcional - efeito parallax) ===
+    // Se quiser que o card acompanhe levemente o mouse, descomente o bloco abaixo
+
+    card.addEventListener("mousemove", (e) => {
+      if (isFlipped) return; // Não aplica tilt no verso
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      const tiltX = (y / rect.height) * 20; // máximo 20°
+      const tiltY = -(x / rect.width) * 20; // inverte horizontal
+
+      gsap.to(card, {
+        rotateX: 22 + tiltX,
+        rotateY: tiltY,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        rotateX: 12,
+        rotateY: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    });
+  });
+});
+
+
+
+// ============================================
+// Tamanho da fonte
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const fontRange = document.getElementById('font-size-range');
+    const htmlRoot = document.documentElement;
+    const sizeDisplay = document.getElementById('font-size-display');
+
+    // Função que aplica a mudança real no CSS (Layout)
+    function applySiteFontSize(size) {
+        htmlRoot.style.fontSize = `${size}%`;
+        localStorage.setItem('cybr_user_fontsize', size);
+    }
+
+    // Função para atualizar apenas o texto do label (Feedback visual)
+    function updateLabel(size) {
+        if (sizeDisplay) {
+            sizeDisplay.textContent = size == 100 ? 'Padrão (100%)' : `${size}%`;
+        }
+    }
+
+    if (fontRange) {
+        // 1. Carregar configuração salva ao iniciar
+        const savedSize = localStorage.getItem('cybr_user_fontsize');
+        
+        if (savedSize) {
+            fontRange.value = savedSize;
+            applySiteFontSize(savedSize);
+            updateLabel(savedSize);
+        }
+
+        // 2. Evento INPUT: Dispara enquanto você ARRASTA
+        // Apenas atualiza o texto, não muda o layout para não "fugir" do mouse
+        fontRange.addEventListener('input', (e) => {
+            updateLabel(e.target.value);
+        });
+
+        // 3. Evento CHANGE: Dispara apenas quando você SOLTA o clique
+        // Aqui sim aplicamos a mudança no site
+        fontRange.addEventListener('change', (e) => {
+            applySiteFontSize(e.target.value);
+        });
+    }
+});
+
+// ============================================
+// Dark Mode Toggle
+// ============================================
+const themeToggleBtn = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+const iconElement = themeToggleBtn?.querySelector('i');
+
+const loadTheme = () => {
+  const localTheme = localStorage.getItem('theme');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if(localTheme === 'dark' || (!localTheme && systemTheme)) {
+    htmlElement.classList.add('dark');
+    updateIcon('moon');
+  } else {
+    htmlElement.classList.remove('dark')
+    updateIcon('sun');
+  }
+}
+
+const toggleTheme = () => {
+  if (htmlElement.classList.contains('dark')) {
+    htmlElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    updateIcon('sun');
+  } else {
+    htmlElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    updateIcon('moon');
+  }
+}
+
+loadTheme();
+
+// Event Listener
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', toggleTheme);
+}

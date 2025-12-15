@@ -53,8 +53,74 @@
                             <a class="link-nav" href="#about-us">Sobre nós</a>
                         </li>
                         <li>
-                            <a class="link-nav" href="#">Acessibilidade</a>
+
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                                class="inline-flex items-center justify-center link-nav cursor-pointer" type="button">
+                                Acessibilidade
+                                <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 9-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            <!-- Dropdown menu -->
+                            <div id="dropdown"
+                                class="z-10 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-64">
+                                <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownDefaultButton">
+                                    <!-- Outras opções (Modo Foco, etc) -->
+                                    <li class="border-t border-neutral-200 pt-2">
+                                        <a href="./pages/focus/"
+                                            class="flex items-center gap-2 px-2 py-2 hover:bg-primary-50 rounded transition-colors">
+                                            <i data-lucide="eye" class="w-4 h-4"></i>
+                                            Modo Foco
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Earnings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Sign
+                                            out</a>
+                                    </li>
+                                    <li>
+                                        <label for="font-size-range" class="block mb-2 font-medium">Tamanho da
+                                            Fonte</label>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs">A-</span>
+                                            <!-- Input Range -->
+                                            <input id="font-size-range" type="range" min="85" max="130" value="100"
+                                                step="5"
+                                                class="w-full h-2 bg-neutral-300 rounded-lg appearance-none cursor-pointer accent-primary-600">
+                                            <span class="text-lg font-bold">A+</span>
+                                        </div>
+                                        <p id="font-size-display" class="text-xs text-center mt-1 text-neutral-500">
+                                            Padrão (100%)</p>
+                                    </li>
+                                    <li class="border-t border-neutral-200 pt-2" id="theme-toggle">
+                                        <a href="#"
+                                            class="flex items-center gap-2 px-2 py-2 hover:bg-primary-50 rounded transition-colors">
+                                            <!-- Sun -->
+                                            <i data-lucide="sun"
+                                                class="w-5 h-5 hidden dark:block text-pastelgreen-300 hover:text-misk-300 cursor-pointer transition ease-in-out duration-300"></i>
+                                            <!-- Ícone Lua (Esconde no Light, aparece no Dark) -->
+                                            <i data-lucide="moon" fill="currentColor"
+                                                class="w-5 h-5  dark:hidden text-pastelgreen-300 hover:text-misk-300 cursor-pointer transition ease-in-out duration-300"></i>
+                                            Modo escuro
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </li>
+
                 </div>
             </div>
 
@@ -105,17 +171,10 @@
                     <div class="swiper swiper-banner  hidden! md:inline-flex!">
                         <!-- Desktop -->
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide h-full "><img src="./assets/img/banners/banner-1.png" srcset="
-                               
-                                ./assets/img/banners/teste-mobile-banner.png 430w,
-                                ./assets/img/banners/banner-1.png 1921w" alt="banner principal labware" sizes="(max-width: 768px) 100vw, 
-                                100vw" class=" h-dvh max-h-dvh md:max-h-[60dvh] 2xl:max-h-[75dvh] min-h-[60dvh]"
+                            <div class="swiper-slide h-full "><img src="./assets/img/banners/banner-1.jpg"
+                                    alt="banner principal" class=" h-dvh max-h-dvh md:max-h-[60dvh] 2xl:max-h-[75dvh] min-h-[60dvh]"
                                     loading="eager">
                             </div>
-
-
-                            <div class="swiper-slide h-full"><img src="./assets/img/banners/banner-estagio-1.png"
-                                    loading="lazy" alt="" class=" h-dvh max-h-dvh md:max-h-[75dvh] min-h-[60dvh]"></div>
 
                         </div>
 
@@ -210,12 +269,11 @@
 
                 <!-- Vídeos vão aqui -->
                 <div class="videos w-full md:w-2/4 m-auto items-center flex flex-col md:flex-row gap-12">
-                    <div class="w-3/4 md:w-1/2 h-auto aspect-9/16 bg-neutral-300">
-                        Vídeo 1
+                    <div class="w-3/4 md:w-1/2 h-auto aspect-9/16 bg-primary-300 rounded-lg">
+                        <video class="rounded-lg" src="./assets/videos/video-finalizado-2.mp4"></video>
+                        <h3 class="text-center font-bold"> Senha segura</h3>
                     </div>
-                    <div class="w-3/4 md:w-1/2 h-auto aspect-9/16 bg-neutral-300">
-                        Vídeo 2
-                    </div>
+
                 </div>
 
             </div>
@@ -256,9 +314,9 @@
     </main>
 
     <footer class="w-full bg-primary-600">
-         <div class="pattern left-0 top-0">
-                <img class="w-3/4 md:w-3/5 h-auto" src="./assets/img/ui/pattern-3.svg" alt="">
-            </div>
+        <div class="pattern left-0 top-0">
+            <img class="w-3/4 md:w-3/5 h-auto" src="./assets/img/ui/pattern-3.svg" alt="">
+        </div>
 
         <div class="w-full  md:py-20 -mt-0.5">
             <div class="bg-misk-200 px-4 md:container md:mx-auto md:grid md:grid-cols-12 md:gap-6">
@@ -269,7 +327,7 @@
                         <li><a href="#services" class="link-hover-underline">Serviços</a></li>
                         <li><a href="#know" class="link-hover-underline">Saiba mais</a></li>
                         <li><a href="#about-u" class="link-hover-underline">Sobre nós</a></li>
-                      
+
                     </ul>
                     <div class="divisor w-1/2 h-0.5 md:hidden mb-3 bg-bluebell-900 rounded-2xl "></div>
                 </div>
@@ -303,7 +361,7 @@
                 </div>
             </div>
             <div class="pattern relative w-full py-16">
-                <img class=" w-3/4 md:w-1/5 h-auto right-0 -bottom-10 absolute"
+                <img class=" w-3/4 md:w-1/5 h-auto right-0 top-0 md:-bottom-10 absolute"
                     src="./assets/img/ui/pattern-2.svg" alt="">
             </div>
         </div>

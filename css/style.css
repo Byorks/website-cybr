@@ -10,7 +10,7 @@
 /* 
    Tema Personalizado (Design System)
 */
-
+@custom-variant dark (&:where(.dark, .dark *));
 /* 
   Camada Base 
   Estilos globais para tags HTML puras.
@@ -25,7 +25,8 @@
         --primary-300: #7DCBFC;
         --primary-400: #38B1F8;
         --primary-500: #0E98E9;
-        --primary-600: #0272BD;   /* main */
+        --primary-600: #0272BD;
+        /* main */
         --primary-700: #035FA1;
         --primary-800: #075185;
         --primary-900: #0C446E;
@@ -58,7 +59,8 @@
         --primary-300: #035FA1;
         --primary-400: #0272BD;
         --primary-500: #0E98E9;
-        --primary-600: #38B1F8;     /* Main Dark (mais claro para brilhar) */
+        --primary-600: #38B1F8;
+        /* Main Dark (mais claro para brilhar) */
         --primary-700: #7DCBFC;
         --primary-800: #BAE2FD;
         --primary-900: #E0F0FE;
@@ -93,6 +95,7 @@
         text-align: left;
         color: var(--surface-text);
     }
+
     p {
         line-height: 1.8;
         margin-bottom: 1rem;
@@ -123,21 +126,22 @@
     --color-surface-text: var(--surface-text);
     --color-surface-border: var(--surface-border);
 
-     /* 🎨 Lochmara */
+    /* 🎨 Lochmara */
     --lochmara-50: #F0F8FF;
     --lochmara-100: #E0F0FE;
     --lochmara-200: #BAE2FD;
     --lochmara-300: #7DCBFC;
     --lochmara-400: #38B1F8;
     --lochmara-500: #0E98E9;
-    --lochmara-600: #0272BD;  /* main */
+    --lochmara-600: #0272BD;
+    /* main */
     --lochmara-700: #035FA1;
     --lochmara-800: #075185;
     --lochmara-900: #0C446E;
     --lochmara-950: #082B49;
 
 
-    /* Fontes e Animações (Mantém igual) */ 
+    /* Fontes e Animações (Mantém igual) */
     --font-title: "Montserrat", sans-serif;
     --font-body: "Montserrat", "Inter", sans-serif, i-sans-serif, system-ui;
 
@@ -224,15 +228,22 @@
         @apply md:w-1/4 h-auto;
     }
 
-    .card .img {
+    .card-focus {
+        @apply md:w-full h-auto;
+    }
+
+    .card .img,
+    .card-focus .img {
         @apply mb-4 w-full h-auto aspect-square bg-surface-bg rounded-lg flex items-center justify-center;
     }
-    
-    .card .img img {
+
+    .card .img img,
+    .card-focus .img img {
         @apply p-8 aspect-square;
     }
 
-    .card .title h3{
+    .card .title h3,
+    .card-focus .title h3 {
         @apply uppercase text-xl text-surface-bg font-semibold text-wrap;
     }
 
@@ -315,42 +326,111 @@
         /* Mantive o gradiente visual específico, mas você poderia usar variáveis se quisesse */
         background-image: linear-gradient(to right, #c084fc, #f472b6);
     }
+
+    #services {
+        /* ou o container pai dos cards */
+        perspective: 1200px;
+        /* fundamental para o 3D funcionar bem */
+        perspective-origin: center center;
+        /* opcional: melhora o ângulo de visão */
+    }
+
+    .card-focus {
+        transform-style: preserve-3d;
+        transform-origin: center center;
+     
+        cursor: pointer;
+ 
+        position: relative; /* Adicionado: para posicionamento absoluto interno */
+        overflow: hidden; /* Opcional: evita vazamentos durante rotação */
+        min-height: 500px;
+         /* aspect-ratio: 1 / 1; */
+    }
+
+    .flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d; /* Permite 3D nos filhos */
+        
+    }
+
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; /* Esconde o verso quando não virado */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px; /* Opcional: bordas arredondadas */
+        padding: 1rem;
+    }
+
+    .back {
+        transform: rotateY(180deg); /* Inicia virado para trás */
+        background-color: var(--surface-bg); /* Opcional: cor diferente para o verso */
+    }
+
+
+      /* Estilização extra para o Range Input */
+    input[type=range] {
+        @apply outline-none focus:ring-2 focus:ring-primary-300 transition-all;
+    }
+
+    /* Webkit (Chrome, Edge, Safari) Track */
+    input[type=range]::-webkit-slider-runnable-track {
+        @apply bg-neutral-200 rounded-lg h-2;
+    }
+
+    /* Mozilla (Firefox) Track */
+    input[type=range]::-moz-range-track {
+        @apply bg-neutral-200 rounded-lg h-2;
+    }
+
+    /* Thumb (A bolinha) */
+    input[type=range]::-webkit-slider-thumb {
+        /* Se o accent-color não for suficiente, use isso: */
+        /* @apply bg-primary-600 border-2 border-white shadow-sm; */
+        margin-top: -4px; /* Ajuste fino de alinhamento se personalizar */
+    }
 }
 
-/* 
+    /* 
   5. Utility Layer 
   Use isso raramente, apenas para criar novas micro-classes utilitárias
   que você quer usar junto com o HTML.
 */
-@layer utilities {
-    /* Exemplo: .text-shadow-sm { ... } */
-}
+    @layer utilities {
+        /* Exemplo: .text-shadow-sm { ... } */
+    }
 
-/* 
+    /* 
   6. Definição de Fontes Locais 
   Certifique-se de que os arquivos .ttf estão realmente nesse caminho
 */
-@font-face {
-    font-family: "Manrope";
-    src: url("../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+        font-family: "Manrope";
+        src: url("../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: "Inter";
-    src: url("../assets/fonts/Inter/Inter-variable.ttf") format("truetype");
-    font-display: swap;
-    font-weight: 100 900;
-    font-style: normal;
-}
+    @font-face {
+        font-family: "Inter";
+        src: url("../assets/fonts/Inter/Inter-variable.ttf") format("truetype");
+        font-display: swap;
+        font-weight: 100 900;
+        font-style: normal;
+    }
 
 
-@font-face {
-    font-family: "Montserrat";
-    src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
-    font-display: swap;
-    font-weight: 100 900;
-    font-style: normal;
-}
+    @font-face {
+        font-family: "Montserrat";
+        src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+        font-display: swap;
+        font-weight: 100 900;
+        font-style: normal;
+    }
