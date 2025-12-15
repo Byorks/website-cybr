@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto CyBR</title>
+    <link rel="shortcut icon" href="./assets/img/icons/favicon-32x32.png" type="image/x-icon">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="./assets/libs/aos/aos.css">
+
+    <!-- Splitting -->
+    <link rel="stylesheet" href="./assets/libs/splitting/splitting.css">
+
+    <!-- Styles CSS -->
+    <link href="./css/output.css" rel="stylesheet">
+
+    <!-- Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Flowbite -->
+    <script src="./assets/libs/flowbite/flowbite.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./assets/libs/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body class="bg-surface-bg text-surface-text">
+    <header class="w-full h-[90px] bg-primary-600 border-b-[1.3px] border-pastelgreen-300 sticky top-0 z-100">
+        <div class="max-w-6xl mx-auto h-full px-6 flex items-center justify-between">
+            <div class="w-full hidden md:block">
+                <!-- Links desktop -->
+                <div class="">
+                    <ul
+                        class="py-12 md:py-6 w-full h-fit md:h-full flex items-center justify-between gap-12 md:gap-6 text-lg md:text-sm flex-col md:flex-row absolute md:relative bg-misk-200 md:bg-transparent rounded-b-sm  right-0">
+                        <li>
+                            <a class="link-nav" href="#services">Serviços</a>
+                        </li>
+                        <li>
+                            <a class="link-nav" href="#know">O que fazemos</a>
+                        </li>
+                        <li>
+                            <div class="logo">
+                                <a class="block text-misk-700 font-bold text-lg" href="./">
+                                    <img src="./assets/img/ui/logotipo.svg" alt="CyBR" class="h-12">
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="link-nav" href="#about-us">Sobre nós</a>
+                        </li>
+                        <li>
+                            <a class="link-nav" href="#">Acessibilidade</a>
+                        </li>
+                </div>
+            </div>
+
+            <div class="logo md:hidden">
+                <a class="block text-misk-700 font-bold text-lg" href="./">
+                    <img src="./assets/img/ui/logotipo.svg" alt="CyBR" class="h-12">
+                </a>
+            </div>
+            <!-- Opção 1 Menu -->
+            <div id="nav-btn" class="nav-btn flex items-center justify-center md:hidden z-50">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </div>
+
+            <div id="menu" data-state="closed"
+                class=" md:hidden w-full h-dvh md:h-full duration-300 grow flex justify-center md:relative md:top-[inherit] top-[-100dvh] absolute left-0 z-40 bg-transparent">
+                <nav aria-label="Global">
+                    <ul
+                        class="py-12 md:py-6 w-full h-fit md:h-full flex items-center gap-12 md:gap-6 text-lg md:text-sm flex-col md:flex-row absolute md:relative bg-primary-600 md:bg-transparent rounded-b-sm  right-0">
+                        <li>
+                            <a class="link-nav" href="#services">Serviços</a>
+                        </li>
+                        <li>
+                            <a class="link-nav" href="#saiba-mais">O que fazemos</a>
+                        </li>
+                        <li>
+                            <a class="link-nav" href="#about-us">Sobre nós</a>
+                        </li>
+                        <li>
+                            <a class="link-nav" href="#">Acessibilidade</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        </div>
+    </header>
+    <div id="menu-overlay"
+        class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 z-30">
+    </div>
+
+    <main>
+        <section class="mx-auto px-0">
+            <div class="mx-auto">
+                <div id="main-banner">
+                    <!-- Swiper  Desktop-->
+                    <div class="swiper swiper-banner  hidden! md:inline-flex!">
+                        <!-- Desktop -->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide h-full "><img src="./assets/img/banners/banner-1.png" srcset="
+                               
+                                ./assets/img/banners/teste-mobile-banner.png 430w,
+                                ./assets/img/banners/banner-1.png 1921w" alt="banner principal labware" sizes="(max-width: 768px) 100vw, 
+                                100vw" class=" h-dvh max-h-dvh md:max-h-[60dvh] 2xl:max-h-[75dvh] min-h-[60dvh]"
+                                    loading="eager">
+                            </div>
+
+
+                            <div class="swiper-slide h-full"><img src="./assets/img/banners/banner-estagio-1.png"
+                                    loading="lazy" alt="" class=" h-dvh max-h-dvh md:max-h-[75dvh] min-h-[60dvh]"></div>
+
+                        </div>
+
+
+
+                        <!-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <!-- Swiper  Desktop-->
+                <div class="swiper swiper-banner md:hidden!">
+
+
+                    <!-- Mobile -->
+                    <div class="swiper-wrapper ">
+                        <div class="swiper-slide h-full ">
+                            <img src="./assets/img/banners/mobile-banner.png"
+                                class=" h-dvh max-h-dvh md:max-h-[60dvh] 2xl:max-h-[75dvh] min-h-[60dvh]"
+                                loading="eager">
+                        </div>
+
+
+                        <div class="swiper-slide h-full"><img src="./assets/img/banners/mobile-banner-2.png"
+                                loading="lazy" alt="" class=" h-dvh max-h-dvh md:max-h-[75dvh] min-h-[60dvh]"></div>
+
+                    </div>
+
+                    <!-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="services" class="w-full py-12 bg-primary-600">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="title-h2 text-surface-bg">Principais Serviços</h2>
+                <div class="flex flex-col sm:flex-row gap-6 justify-between">
+
+                    <div class="card">
+                        <div class="img ">
+                            <img src="./assets/img/ui/ico-1.svg" alt="">
+                        </div>
+
+                        <div class="title w-full">
+                            <h3 class="">Cibersegurança
+                                para Pessoas</h3>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img ">
+                            <img src="./assets/img/ui/ico-2.svg" alt="">
+                        </div>
+
+                        <div class="title w-full">
+                            <h3 class="">Boas Práticas Digitais</h3>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img ">
+                            <img src="./assets/img/ui/ico-3.svg" alt="">
+                        </div>
+
+                        <div class="title w-full">
+                            <h3 class="">Educação Acessível</h3>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img ">
+                            <img src="./assets/img/ui/ico-4.svg" alt="">
+                        </div>
+
+                        <div class="title w-full">
+                            <h3 class="">Consciência e Prevenção</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full relative min-h-dvh my-12" id="know">
+            <div class="pattern left-0 top-1/10">
+                <img class="w-3/4 md:w-1/5 h-auto" src="./assets/img/ui/pattern-1.svg" alt="">
+            </div>
+            <div class="max-w-6xl mx-auto px-4 h-full">
+                <h2 class="title-h2">Saiba Mais</h2>
+
+                <!-- Vídeos vão aqui -->
+                <div class="videos w-full md:w-2/4 m-auto items-center flex flex-col md:flex-row gap-12">
+                    <div class="w-3/4 md:w-1/2 h-auto aspect-9/16 bg-neutral-300">
+                        Vídeo 1
+                    </div>
+                    <div class="w-3/4 md:w-1/2 h-auto aspect-9/16 bg-neutral-300">
+                        Vídeo 2
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="know" class="w-full min-h-dvh my-12">
+
+            <div class="max-w-6xl mx-auto px-4 h-full">
+                <h2 class="title-h2">Sobre CyBR</h2>
+                <div>
+                    <p>A cibersegurança faz parte da nossa vida, mesmo quando não percebemos. Todos os dias, usamos
+                        aplicativos, redes sociais e serviços digitais — e proteger nossos dados deveria ser um direito
+                        de
+                        todas as pessoas, não um privilégio de quem entende de tecnologia.</p>
+
+                    <p>Este projeto nasceu com o objetivo de democratizar o conhecimento em cibersegurança no Brasil,
+                        tornando o tema mais acessível, claro e próximo da realidade das pessoas. Aqui, acreditamos que
+                        aprender sobre segurança digital não precisa ser complicado, técnico ou distante.</p>
+
+                    <p>Por meio de conteúdos educativos, práticos e inclusivos, buscamos conscientizar, orientar e
+                        empoderar
+                        pessoas de diferentes níveis de conhecimento para que possam navegar no ambiente digital com
+                        mais
+                        segurança e autonomia.</p>
+
+                    <p>Nosso compromisso é com a educação, a inclusão e a prevenção, promovendo uma cultura digital mais
+                        segura, responsável e acessível para todos.</p>
+                </div>
+            </div>
+
+
+            <div class="pattern relative w-full py-16">
+                <img class="-scale-x-100 w-3/4 md:w-1/5 h-auto right-0 -bottom-10 absolute"
+                    src="./assets/img/ui/pattern-1.svg" alt="">
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full">
+
+        <div class="w-full bg-primary-600 md:pb-20 -mt-0.5">
+            <div class="bg-misk-200 px-4 md:container md:mx-auto md:grid md:grid-cols-12 md:gap-6">
+
+                <div id="links-footer"
+                    class="link bg-misk-200 pt-6 md:col-span-4 md:col-start-6 md:pt-0 order-1 md:order-2">
+                    <h2 class="font-title font-bold text-xl text-misk-900">
+                        Navegue pelo site
+                    </h2>
+                    <ul class="grid gap-3 py-3">
+                        <li><a href="./index.html" class="link-hover-underline">Página Inicial</a></li>
+                        <li><a href="./pages/about/" class="link-hover-underline">Sobre</a></li>
+                        <li><a href="pages/trainee-promo.html" class="link-hover-underline">Carreiras</a></li>
+                        <li><a href="pages/produtos" class="link-hover-underline">Serviços</a></li>
+                        <li><a href="./pages/contato/contato.html" class="link-hover-underline">Contato</a></li>
+                        <li><a href="./pages/setores/setores.html"
+                                class="link-hover-underline transition duration-300 ease-in-out">Setores</a></li>
+                    </ul>
+                    <div class="divisor w-1/2 h-0.5 md:hidden mb-3 bg-bluebell-900 rounded-2xl "></div>
+                </div>
+
+                <div id="social-midia" class="md:col-span-3 md:col-start-10 order-2 md:order-3">
+                    <h2 class="font-title font-bold text-xl text-misk-900">
+                        Conheça nossas mídias
+                    </h2>
+
+                    <div class="flex gap-1">
+                        <a class="rounded" target="_blank" href="https://www.instagram.com/linesync_tech">
+                            <img class="hover:bg-misk-600/50 active:bg-misk-100 rounded transition duration-300 ease-in-out cursor-pointer"
+                                src="./assets/img/icons/square-instagram-brands-solid-full.svg" alt="">
+                        </a>
+
+                        <img class="hover:bg-misk-600/50 rounded transition duration-300 ease-in-out cursor-pointer"
+                            src="./assets/img/icons/square-linkedin-brands-solid-full.svg" alt="">
+                        <img class="hover:bg-misk-600/50 rounded transition duration-300 ease-in-out cursor-pointer"
+                            src="./assets/img/icons/square-youtube-brands-solid-full.svg" alt="">
+                    </div>
+                    <div class="divisor w-1/2 h-0.5 my-3 md:hidden bg-bluebell-900 rounded-2xl"></div>
+
+                </div>
+
+                <div id="logo-footer"
+                    class="bg-misk-200  pt-3 pb-6  grid grid-cols-4 gap-6 md:pb-0 md:pt-0 md:col-span-4 md:col-start-1 order-3 md:order-1">
+                    <!-- Logotipo -->
+                    <div class="col-span-2 col-start-1 md:col-span-2 text-misk-950 ">
+                        <img src="./assets/img/ui/logo-negativo.svg" alt="LineSync" class="w-full h-auto svg-misk">
+
+                    </div>
+                    <div class="col-span-4 col-start-1 md:col-span-3">
+                        <p>
+                            A LineSync desenvolve soluções tecnológicas para simplificar e automatizar rotinas
+                            laboratoriais. Com LIMS e ELN integrados, tornamos processos mais rápidos, seguros e
+                            organizados, unindo inovação, clareza e eficiência para quem trabalha com ciência.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+<!-- Splitting -->
+<script src="./assets/libs/splitting/splitting.min.js"></script>
+<!-- AOS -->
+<script src="./assets/libs/aos/aos.js"></script>
+<!-- Lucide JS -->
+<script src="./assets/libs/lucide/lucide.min.js"></script>
+<!-- Swiper JS -->
+<script src="./assets/libs/swiper/swiper-bundle.min.js"></script>
+<!-- Main -->
+<script src="assets/js/main.js"></script>
+
+
+</html>
